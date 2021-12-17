@@ -2,13 +2,13 @@
 
 void PrintIntroduction()
 {
-//Welcome message - print to terminal
-  std::cout << "\nWith the guards down, you breach the outer doors into the vault room. \n";
+  //Welcome message - print to terminal
+  std::cout << "\n\nWith the guards down, you breach the outer doors into the vault room. \n";
   std::cout << "In front of you stands a very large door, with a keypad combination lock. \n";
   std::cout << "You'll need to guess the combination before you can enter the vault. \n\n";
 }
 
-void PlayGame()
+bool PlayGame()
 {
   PrintIntroduction();
 
@@ -44,6 +44,8 @@ void PlayGame()
     std::cout << "A green light illuminates the room. \n";
     std::cout << "As the massive steel slab swings open, you are greeted by mountains of cash! \n";
     std::cout << "Congratulations! You have breached the vault! You make off with as much cash as you can carry. \n";
+    return true;
+    
   }
   else
   {
@@ -52,10 +54,25 @@ void PlayGame()
     std::cout << "A loud crash can be heard behind you as steel bars slide into the doorway. \n";
     std::cout << "Suddenly, you are greeted on the other side of the bars by men and women dressed in tactical gear, their firearms pointed directly at you! \n";
     std::cout << "Enjoy your prison time! \n";
+    return false;
   }
 }
 
 int main()
 {
-  PlayGame();
+  int LevelDifficulty = 1;
+  while (true)
+  {
+    bool bLevelComplete = PlayGame();
+    std::cin.clear();  // Clear errors from input
+    std::cin.ignore(); // Discard input buffer
+    
+    if (bLevelComplete)
+    {
+      // Increase the level difficulty
+      ++LevelDifficulty;
+    }
+    
+  }
+  return 0;
 }
