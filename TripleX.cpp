@@ -43,18 +43,14 @@ bool PlayGame(int Difficulty)
   {
     // Win condition - print victory message to terminal
     std::cout << "A green light illuminates the room. \n";
-    std::cout << "As the massive steel slab swings open, you are greeted by mountains of cash! \n";
-    std::cout << "Congratulations! You have breached the vault! You make off with as much cash as you can carry. \n";
+    std::cout << "The vault doors open, revealing another layer of secure doors \n";
     return true;
     
   }
   else
   {
     // Lose condition - print failure message to terminal
-    std::cout << "Alarms sound, and the room is engulfed in a deep red glow. \n";
-    std::cout << "A loud crash can be heard behind you as steel bars slide into the doorway. \n";
-    std::cout << "Suddenly, you are greeted on the other side of the bars by men and women dressed in tactical gear, their firearms pointed directly at you! \n";
-    std::cout << "Enjoy your prison time! \n";
+    std::cout << "A buzzer sounds. You have entered the incorrect combination. \n";
     return false;
   }
 }
@@ -62,7 +58,9 @@ bool PlayGame(int Difficulty)
 int main()
 {
   int LevelDifficulty = 1;
-  while (true)
+  const int MaxLevel = 5;
+
+  while (LevelDifficulty <= MaxLevel) // Game Loop until all levels complete
   {
     bool bLevelComplete = PlayGame(LevelDifficulty);
     std::cin.clear();  // Clear errors from input
@@ -75,5 +73,8 @@ int main()
     }
     
   }
-  return 0;
+    std::cout << "A green light illuminates the room. \n";
+    std::cout << "As the massive steel slab swings open, you are greeted by mountains of cash! \n";
+    std::cout << "Congratulations! You have breached the vault! You make off with as much cash as you can carry. \n";
+    return 0;
 }
