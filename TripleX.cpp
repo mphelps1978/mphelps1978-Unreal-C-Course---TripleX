@@ -51,7 +51,7 @@ void PlayGame()
     std::cout << "Alarms sound, and the room is engulfed in a deep red glow. \n";
     std::cout << "A loud crash can be heard behind you as steel bars slide into the doorway. \n";
     std::cout << "Suddenly, you are greeted on the other side of the bars by men and women dressed in tactical gear, their firearms pointed directly at you! \n";
-    std::cout << "Enjoy your prison time. \n";
+    std::cout << "Enjoy your prison time! \n";
   }
 }
 
