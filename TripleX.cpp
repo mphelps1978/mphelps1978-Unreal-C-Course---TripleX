@@ -1,16 +1,17 @@
 #include <iostream>
 
-void PrintIntroduction()
+void PrintIntroduction(int Difficulty)
 {
   //Welcome message - print to terminal
-  std::cout << "\n\nWith the guards down, you breach the outer doors into the vault room. \n";
+  std::cout << "\n\nLEVEL " << Difficulty;
+  std::cout << "\nWith the guards down, you breach the doors into the vault room. \n";
   std::cout << "In front of you stands a very large door, with a keypad combination lock. \n";
   std::cout << "You'll need to guess the combination before you can enter the vault. \n\n";
 }
 
-bool PlayGame()
+bool PlayGame(int Difficulty)
 {
-  PrintIntroduction();
+  PrintIntroduction(Difficulty);
 
   //Initialize our 3 codes
   const int CodeA = 2;
@@ -63,7 +64,7 @@ int main()
   int LevelDifficulty = 1;
   while (true)
   {
-    bool bLevelComplete = PlayGame();
+    bool bLevelComplete = PlayGame(LevelDifficulty);
     std::cin.clear();  // Clear errors from input
     std::cin.ignore(); // Discard input buffer
     
