@@ -1,10 +1,11 @@
 #include <iostream>
+#include <ctime>
 
 void PrintIntroduction(int Difficulty)
 {
   //Welcome message - print to terminal
   std::cout << "\n\nLEVEL " << Difficulty;
-  std::cout << "\nWith the guards down, you breach the doors into the vault room. \n";
+  std::cout << "\nYou breach the doors into the vault room. \n";
   std::cout << "In front of you stands a very large door, with a keypad combination lock. \n";
   std::cout << "You'll need to guess the combination before you can enter the vault. \n\n";
 }
@@ -14,9 +15,9 @@ bool PlayGame(int Difficulty)
   PrintIntroduction(Difficulty);
 
   //Initialize our 3 codes
-  const int CodeA = 2;
-  const int CodeB = 3;
-  const int CodeC = 4;
+  const int CodeA = rand() % Difficulty + Difficulty;
+  const int CodeB = rand() % Difficulty + Difficulty;
+  const int CodeC = rand() % Difficulty + Difficulty;
 
   //Prepare the "hints" for the codes
   const int CodeSum = CodeA + CodeB + CodeC;
@@ -57,6 +58,8 @@ bool PlayGame(int Difficulty)
 
 int main()
 {
+  srand(time(NULL));
+  
   int LevelDifficulty = 1;
   const int MaxLevel = 5;
 
